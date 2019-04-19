@@ -37,6 +37,69 @@ Once you are authenticated through `Secret`, your _Policies_/_Permissions_/_Acce
 Now `Policy` contains what you can/cannot access through all dimensions.
 
 
+## API
+
+> All requests are expected to have a token in header `X-Authorization-Token` except `/sts/auth`
+
+### /sts/auth
+
+```
+{
+    key string
+    durationSeconds int
+    currentTimeSeconds int
+    nonce string 
+    signature string
+}
+```
+
+> signature: params are first sorted by key, key and value are then joined by '=' into pairs, pairs are then joined by '&', append secret, then sha1 the entire string
+
+example go implementation:
+```
+func signParams(params map[string]interface{}, secret string) string {
+	var keys []string
+	for key := range params {
+		keys = append(keys, key)
+	}
+	sort.Strings(keys)
+	paris := make([]string, len(keys))
+	for i, key := range keys {
+		paris[i] = fmt.Sprintf("%s=%v", key, params[key])
+	}
+	str := strings.Join(paris, "&") + secret
+	h := sha1.New()
+	h.Write([]byte(str))
+	return hex.EncodeToString(h.Sum(nil))
+}
+```
+
+### /sts/assume
+
+```
+{
+    name string // used as generated account's name
+    durationSeconds int
+    role Ref
+}
+```
+
+> requested account should have permission on resource { namespace: 'oiam.io', name: 'sts', tags: { 'role.name': <role name> or *, 'role.namespace': <role namespace> or * } } 
+
+## /sts/access
+
+```
+{
+    service Ref
+    action string
+}
+```
+
+## /iam/<namespace> or */<kind>/<name> or empty
+
+> query are parsed as tags  or search criteria on certain resources (e.g, for `Account`, `type` can be in query to filter account types)
+
+
 ## Embedded ConditionOperators
 ```
 "StringEquals"
