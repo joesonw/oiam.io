@@ -115,16 +115,16 @@ Metadata {
 
 ```
 AccountType ( 
-	User = "user"
-	Service = "service"
+    User = "user"
+    Service = "service"
 )
 ```
 
 ```
 Account {
-	Description string 
-	Type        AccountType
-	Metadata    Metadata
+    description string 
+    type        AccountType
+    metadata    Metadata
 }
 ```
 
@@ -132,8 +132,8 @@ Account {
 
 ```
 Group {
-    Description string 
-	Metadata    Metadata
+    description string 
+    metadata    Metadata
 }
 ```
 
@@ -141,8 +141,8 @@ Group {
 
 ```
 Role {
-    Description string 
-	Metadata    Metadata
+    description string 
+    metadata    Metadata
 }
 ```
 
