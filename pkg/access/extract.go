@@ -42,15 +42,15 @@ func (a *DefaultImplementation) extractKeyValueFromContext(ctx context.Context, 
 	}
 
 	if strings.HasPrefix(key, "v1alpha.conditionkeys.oiam.io/PrincipalTag/") {
-		return principal.Tags[key[40:]]
+		return principal.Tags[key[43:]]
 	}
 
 	if strings.HasPrefix(key, "v1alpha.conditionkeys.oiam.io/ResourceTag/") {
-		return service.Tags[key[39:]]
+		return service.Tags[key[42:]]
 	}
 
 	if strings.HasPrefix(key, "v1alpha.conditionkeys.oiam.io/Header/") {
-		return common.GetHeaderFromContext(ctx, key[34:])
+		return common.GetHeaderFromContext(ctx, key[37:])
 	}
 
 	if a.webhookURL != "" {
