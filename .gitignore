@@ -1,0 +1,8 @@
+.DS_Store
+.idea
+.vscode
+config.yaml
+statik/
+web/node_modules/
+web/dist/
+oiam

@@ -1,0 +1,24 @@
+{
+    "compilerOptions": {
+        "outDir": "./dist/server/static",
+        "target": "es6",
+        "module": "esnext",
+        "experimentalDecorators": true,
+        "emitDecoratorMetadata": true,
+        "noImplicitAny": false,
+        "skipLibCheck": true,
+        "jsx": "preserve",
+        "sourceMap": true,
+        "moduleResolution": "node",
+        "baseUrl": "./src",
+        "paths": {
+            "*": ["*"]
+        },
+        "types": []
+    },
+    "compileOnSave": false,
+    "include": [
+        "./src/**/*",
+        "./libs/**/*.d.ts"
+    ]
+}

@@ -1,0 +1,16 @@
+{
+    "presets": [
+        [
+            "env",
+            {
+                "targets": ["last 2 versions"],
+                "modules": false
+            }
+        ],
+        "react"
+    ],
+    "plugins": [
+        "transform-regenerator",
+        "syntax-dynamic-import"
+    ]
+}
