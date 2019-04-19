@@ -16,8 +16,7 @@ func withoutNamespace(basic *basic) *withoutNamespaceController {
 
 func (c *withoutNamespaceController) List(ctx context.Context, metadata iam.Metadata, params iam.Params) ([]iam.Interface, error) {
 	meta := metadata.Clone()
-	meta.Namespace = ""
-	return c.storage.List(ctx, *meta, params, func() iam.Interface { return &iam.Namespace{} })
+	return c.storage.List(ctx, *meta, params, c.new)
 }
 
 func (c *withoutNamespaceController) Get(ctx context.Context, metadata iam.Metadata) (iam.Interface, error) {

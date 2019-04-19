@@ -428,7 +428,7 @@ export default function PolicyStatementForm(props: Props) {
                                                 <Button
                                                     color="primary"
                                                     onClick={() => {
-                                                        const keys = Object.keys(props.value.condition);
+                                                        const keys = Object.keys(props.value.condition || {});
                                                         const options = Object.keys(ConditionKey)
                                                             .map(key => ConditionKey[key])
                                                             .filter(key => keys.indexOf(key) === -1);

@@ -33,7 +33,9 @@ func (pb *PolicyBinding) SetParams(params Params) Interface {
 
 func (pb PolicyBinding) Clone() Interface {
 	subjects := make([]Ref, len(pb.Subjects))
-	copy(subjects, pb.Subjects)
+	for i := range pb.Subjects {
+		subjects[i] = *pb.Subjects[i].Clone()
+	}
 	return &PolicyBinding{
 		Subjects:  subjects,
 		PolicyRef: pb.PolicyRef,

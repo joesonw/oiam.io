@@ -26,6 +26,7 @@ func (c *GroupBinding) PreFlightCheck(ctx context.Context, in iam.Interface) err
 	if err := preFlightCheck(ctx, c.storage, iam.KindGroupBinding, in); err != nil {
 		return err
 	}
+
 	binding := in.(*iam.GroupBinding)
 	for i, subject := range binding.Subjects {
 		if err := preFlightCheckRef(ctx, c.storage, fmt.Sprintf("subject%d", i), subject); err != nil {

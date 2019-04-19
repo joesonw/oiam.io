@@ -35,7 +35,9 @@ func (gb *GroupBinding) SetParams(params Params) Interface {
 
 func (gb GroupBinding) Clone() Interface {
 	subjects := make([]Ref, len(gb.Subjects))
-	copy(subjects, gb.Subjects)
+	for i := range gb.Subjects {
+		subjects[i] = *gb.Subjects[i].Clone()
+	}
 	return &GroupBinding{
 		Subjects: subjects,
 		GroupRef: gb.GroupRef,
