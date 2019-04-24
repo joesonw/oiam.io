@@ -1,9 +1,9 @@
 package app
 
 import (
-	"oiam.io/pkg/access"
-	"oiam.io/pkg/storage"
-	"oiam.io/pkg/sts"
+	"github.com/joesonw/oiam.io/pkg/access"
+	"github.com/joesonw/oiam.io/pkg/storage"
+	"github.com/joesonw/oiam.io/pkg/sts"
 )
 
 type Config struct {

@@ -3,7 +3,7 @@ package sts
 import (
 	"time"
 
-	"oiam.io/pkg/iam"
+	"github.com/joesonw/oiam.io/pkg/iam"
 )
 
 type Token struct {

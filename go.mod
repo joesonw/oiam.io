@@ -1,4 +1,4 @@
-module oiam.io
+module github.com/joesonw/oiam.io
 
 go 1.12
 

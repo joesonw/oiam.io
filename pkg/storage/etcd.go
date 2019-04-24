@@ -10,8 +10,8 @@ import (
 	"strings"
 
 	"github.com/coreos/etcd/mvcc/mvccpb"
+	"github.com/joesonw/oiam.io/pkg/iam"
 	"go.etcd.io/etcd/clientv3"
-	"oiam.io/pkg/iam"
 )
 
 const (

@@ -3,9 +3,9 @@ package controller
 import (
 	"context"
 
-	"oiam.io/pkg/common"
-	"oiam.io/pkg/iam"
-	"oiam.io/pkg/storage"
+	"github.com/joesonw/oiam.io/pkg/common"
+	"github.com/joesonw/oiam.io/pkg/iam"
+	"github.com/joesonw/oiam.io/pkg/storage"
 )
 
 type Secret struct {

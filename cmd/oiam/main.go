@@ -5,13 +5,13 @@ import (
 	"fmt"
 	"strings"
 
-	"oiam.io/cmd/oiam/app"
-	"oiam.io/pkg/access"
-	"oiam.io/pkg/common"
-	"oiam.io/pkg/controller"
-	"oiam.io/pkg/iam"
-	"oiam.io/pkg/storage"
-	"oiam.io/pkg/sts"
+	"github.com/joesonw/oiam.io/cmd/oiam/app"
+	"github.com/joesonw/oiam.io/pkg/access"
+	"github.com/joesonw/oiam.io/pkg/common"
+	"github.com/joesonw/oiam.io/pkg/controller"
+	"github.com/joesonw/oiam.io/pkg/iam"
+	"github.com/joesonw/oiam.io/pkg/storage"
+	"github.com/joesonw/oiam.io/pkg/sts"
 )
 
 func main() {

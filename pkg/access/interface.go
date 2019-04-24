@@ -3,7 +3,7 @@ package access
 import (
 	"context"
 
-	"oiam.io/pkg/iam"
+	"github.com/joesonw/oiam.io/pkg/iam"
 )
 
 type Interface interface {

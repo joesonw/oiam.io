@@ -6,7 +6,7 @@ import (
 	"fmt"
 
 	"github.com/go-redis/redis"
-	"oiam.io/pkg/iam"
+	"github.com/joesonw/oiam.io/pkg/iam"
 )
 
 type Redis struct {
@@ -111,6 +111,9 @@ func (r *Redis) Has(ctx context.Context, kind iam.Kind, namespace, name string) 
 func (r *Redis) Get(ctx context.Context, in iam.Interface) error {
 	v, err := r.client.WithContext(ctx).Get(getRedisKey(in)).Bytes()
 	if err != nil {
+		if err == redis.Nil {
+			return ErrNotFound
+		}
 		return err
 	}
 	if len(v) == 0 {

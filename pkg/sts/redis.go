@@ -8,11 +8,11 @@ import (
 	"time"
 
 	"github.com/go-redis/redis"
-	"oiam.io/pkg/access"
-	"oiam.io/pkg/common"
-	"oiam.io/pkg/iam"
-	"oiam.io/pkg/optional"
-	"oiam.io/pkg/storage"
+	"github.com/joesonw/oiam.io/pkg/access"
+	"github.com/joesonw/oiam.io/pkg/common"
+	"github.com/joesonw/oiam.io/pkg/iam"
+	"github.com/joesonw/oiam.io/pkg/optional"
+	"github.com/joesonw/oiam.io/pkg/storage"
 )
 
 type Redis struct {

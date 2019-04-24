@@ -4,7 +4,7 @@ import (
 	"context"
 	"errors"
 
-	"oiam.io/pkg/iam"
+	"github.com/joesonw/oiam.io/pkg/iam"
 )
 
 var (

@@ -3,7 +3,7 @@ package storage
 import (
 	"errors"
 
-	"oiam.io/pkg/iam"
+	"github.com/joesonw/oiam.io/pkg/iam"
 )
 
 func New(config *Config) (Interface, error) {

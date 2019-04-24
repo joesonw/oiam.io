@@ -10,8 +10,8 @@ import (
 	"strings"
 	"time"
 
-	"oiam.io/pkg/iam"
-	"oiam.io/pkg/sts"
+	"github.com/joesonw/oiam.io/pkg/iam"
+	"github.com/joesonw/oiam.io/pkg/sts"
 )
 
 type authRequest struct {

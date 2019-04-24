@@ -16,6 +16,7 @@ ADD vendor/ /app/vendor
 ADD pkg/ /app/pkg
 ADD cmd/ /app/cmd
 ADD go.mod /app/go.mod
+RUN go mod tidy
 RUN GOPROXY="https://athens.azurefd.net" go get github.com/rakyll/statik
 RUN statik -src=/go/dist -dest=/app
 RUN CGO_ENABLED=0 GOOS=linux go build -o oiam /app/cmd/oiam/main.go

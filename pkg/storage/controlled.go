@@ -4,8 +4,8 @@ import (
 	"context"
 	"time"
 
+	"github.com/joesonw/oiam.io/pkg/iam"
 	uuid "github.com/satori/go.uuid"
-	"oiam.io/pkg/iam"
 )
 
 type Controlled struct {

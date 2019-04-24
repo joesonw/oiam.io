@@ -1,8 +1,8 @@
 package controller
 
 import (
-	"oiam.io/pkg/iam"
-	"oiam.io/pkg/storage"
+	"github.com/joesonw/oiam.io/pkg/iam"
+	"github.com/joesonw/oiam.io/pkg/storage"
 )
 
 type Account struct {

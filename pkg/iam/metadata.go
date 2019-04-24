@@ -5,7 +5,7 @@ import (
 	"time"
 
 	validation "github.com/go-ozzo/ozzo-validation"
-	"oiam.io/pkg/common"
+	"github.com/joesonw/oiam.io/pkg/common"
 )
 
 type Metadata struct {

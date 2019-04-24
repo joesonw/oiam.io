@@ -6,11 +6,11 @@ import (
 	"net/http"
 	"strings"
 
+	"github.com/joesonw/oiam.io/pkg/controller"
+	"github.com/joesonw/oiam.io/pkg/iam"
+	"github.com/joesonw/oiam.io/pkg/sts"
+	_ "github.com/joesonw/oiam.io/statik" // static files
 	"github.com/rakyll/statik/fs"
-	"oiam.io/pkg/controller"
-	"oiam.io/pkg/iam"
-	"oiam.io/pkg/sts"
-	_ "oiam.io/statik" // static files
 )
 
 type response struct {

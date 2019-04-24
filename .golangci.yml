@@ -5,10 +5,9 @@ run:
   tests: true
   build-tags: []
   skip-dirs:
-    - vendor
-        - test/testdata_etc
+    - images
+    - web
   skip-files: []
-  modules-download-mode: vendor
 
 output:
   format: colored-line-number
