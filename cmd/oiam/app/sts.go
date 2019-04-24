@@ -92,7 +92,7 @@ func (s *Server) serveSTS(res http.ResponseWriter, req *http.Request, token *sts
 				"currentTimeSeconds": r.CurrentTimeSeconds,
 				"nonce":              r.Nonce,
 			}
-			sig := signParams(params, credential.Secret)
+			sig := SignParams(params, credential.Secret)
 			if sig != r.Signature {
 				err = errors.New("unauthenticated")
 				return

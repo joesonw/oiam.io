@@ -4,9 +4,6 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
-	"time"
-
-	uuid "github.com/satori/go.uuid"
 
 	"github.com/go-redis/redis"
 	"oiam.io/pkg/iam"
@@ -16,11 +13,11 @@ type Redis struct {
 	client *redis.Client
 }
 
-func NewRedis(addr, password string, db int) (*Redis, error) {
+func NewRedis(config *RedisConfig) (*Redis, error) {
 	client := redis.NewClient(&redis.Options{
-		Addr:     addr,
-		Password: password,
-		DB:       db,
+		Addr:     config.Addr,
+		Password: config.Password,
+		DB:       config.DB,
 	})
 	return &Redis{client}, nil
 }
@@ -128,22 +125,12 @@ func (r *Redis) Put(ctx context.Context, in iam.Interface) error {
 
 	old := in.Clone()
 	err := r.Get(ctx, old)
-	if err != nil && err != redis.Nil {
+	if err != nil && err != ErrNotFound {
 		return err
 	}
 
 	oldParams := old.GetParams().Clone()
-
-	meta := old.GetMetadata().Clone()
-	if meta.Version == 0 { // new
-		meta.CreatedAt = time.Now()
-	} else {
-		meta.CreatedAt = old.GetMetadata().CreatedAt
-	}
-	meta.Version++
-	meta.UID = uuid.NewV4().String()
-	meta.UpdatedAt = time.Now()
-	in.SetMetadata(*meta)
+	meta := in.GetMetadata()
 
 	b, _ := json.Marshal(in)
 

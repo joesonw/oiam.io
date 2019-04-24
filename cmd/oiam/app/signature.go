@@ -9,7 +9,7 @@ import (
 	"strings"
 )
 
-func signParams(params map[string]interface{}, secret string) string {
+func SignParams(params map[string]interface{}, secret string) string {
 	var keys []string
 	for key := range params {
 		keys = append(keys, key)

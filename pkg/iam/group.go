@@ -4,6 +4,8 @@ import (
 	validation "github.com/go-ozzo/ozzo-validation"
 )
 
+var _ Interface = (*Group)(nil)
+
 type Group struct {
 	Description string   `json:"description,omitempty"`
 	Metadata    Metadata `json:"metadata,omitempty"`

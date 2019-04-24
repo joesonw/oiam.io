@@ -19,7 +19,7 @@ func main() {
 
 	common.ParseConfig(&config)
 
-	redisStorage, err := storage.New(config.Storage)
+	storageInstance, err := storage.New(config.Storage)
 	if err != nil {
 		panic(err)
 	}
@@ -29,14 +29,14 @@ func main() {
 		panic(err)
 	}
 
-	redisSTS, err := sts.New(config.STS, redisStorage, defaultAccess)
+	redisSTS, err := sts.New(config.STS, storageInstance, defaultAccess)
 
 	if err != nil {
 		panic(err)
 	}
 
 	ctx := context.TODO()
-	accounts, err := redisStorage.List(ctx, iam.Metadata{Namespace: "*", Name: "*", Kind: iam.KindAccount}, nil, func() iam.Interface { return &iam.Account{} })
+	accounts, err := storageInstance.List(ctx, iam.Metadata{Namespace: "*", Name: "*", Kind: iam.KindAccount}, nil, func() iam.Interface { return &iam.Account{} })
 	if err != nil {
 		panic(err)
 	}
@@ -54,7 +54,7 @@ func main() {
 		if err = namespace.Validate(); err != nil {
 			panic(err)
 		}
-		if err = redisStorage.Put(ctx, &namespace); err != nil {
+		if err = storageInstance.Put(ctx, &namespace); err != nil {
 			panic(err)
 		}
 
@@ -65,12 +65,15 @@ func main() {
 				Namespace: "oiam.io",
 				Name:      "admin",
 				Kind:      iam.KindAccount,
+				Tags: map[string]string{
+					"test": "123",
+				},
 			},
 		}
 		if err = account.Validate(); err != nil {
 			panic(err)
 		}
-		if err = redisStorage.Put(ctx, &account); err != nil {
+		if err = storageInstance.Put(ctx, &account); err != nil {
 			panic(err)
 		}
 
@@ -85,7 +88,7 @@ func main() {
 		if err = group.Validate(); err != nil {
 			panic(err)
 		}
-		if err = redisStorage.Put(ctx, &group); err != nil {
+		if err = storageInstance.Put(ctx, &group); err != nil {
 			panic(err)
 		}
 
@@ -100,7 +103,7 @@ func main() {
 		if err = role.Validate(); err != nil {
 			panic(err)
 		}
-		if err = redisStorage.Put(ctx, &role); err != nil {
+		if err = storageInstance.Put(ctx, &role); err != nil {
 			panic(err)
 		}
 
@@ -127,7 +130,7 @@ func main() {
 		if err = policy.Validate(); err != nil {
 			panic(err)
 		}
-		if err = redisStorage.Put(ctx, &policy); err != nil {
+		if err = storageInstance.Put(ctx, &policy); err != nil {
 			panic(err)
 		}
 
@@ -142,7 +145,7 @@ func main() {
 		if err = policyBinding.Validate(); err != nil {
 			panic(err)
 		}
-		if err = redisStorage.Put(ctx, &policyBinding); err != nil {
+		if err = storageInstance.Put(ctx, &policyBinding); err != nil {
 			panic(err)
 		}
 
@@ -157,7 +160,7 @@ func main() {
 		if err = groupBinding.Validate(); err != nil {
 			panic(err)
 		}
-		if err = redisStorage.Put(ctx, &groupBinding); err != nil {
+		if err = storageInstance.Put(ctx, &groupBinding); err != nil {
 			panic(err)
 		}
 
@@ -174,7 +177,7 @@ func main() {
 		if err = secret.Validate(); err != nil {
 			panic(err)
 		}
-		if err = redisStorage.Put(ctx, &secret); err != nil {
+		if err = storageInstance.Put(ctx, &secret); err != nil {
 			panic(err)
 		}
 
@@ -191,14 +194,14 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
-	srv.Register(controller.NewAccount(redisStorage))
-	srv.Register(controller.NewRole(redisStorage))
-	srv.Register(controller.NewGroup(redisStorage))
-	srv.Register(controller.NewPolicy(redisStorage))
-	srv.Register(controller.NewGroupBinding(redisStorage))
-	srv.Register(controller.NewPolicyBinding(redisStorage))
-	srv.Register(controller.NewSecret(redisStorage))
-	srv.Register(controller.NewNamespace(redisStorage))
+	srv.Register(controller.NewAccount(storageInstance))
+	srv.Register(controller.NewRole(storageInstance))
+	srv.Register(controller.NewGroup(storageInstance))
+	srv.Register(controller.NewPolicy(storageInstance))
+	srv.Register(controller.NewGroupBinding(storageInstance))
+	srv.Register(controller.NewPolicyBinding(storageInstance))
+	srv.Register(controller.NewSecret(storageInstance))
+	srv.Register(controller.NewNamespace(storageInstance))
 
 	if err := srv.Start("", config.Port); err != nil {
 		panic(err)

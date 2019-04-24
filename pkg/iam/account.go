@@ -4,6 +4,8 @@ import (
 	validation "github.com/go-ozzo/ozzo-validation"
 )
 
+var _ Interface = (*Account)(nil)
+
 type AccountType string
 
 const (
