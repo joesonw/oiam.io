@@ -3,8 +3,8 @@ package sts
 import (
 	"errors"
 
-	"github.com/joesonw/oiam.io/pkg/access"
-	"github.com/joesonw/oiam.io/pkg/storage"
+	"github.com/joesonw/oiam/pkg/access"
+	"github.com/joesonw/oiam/pkg/storage"
 )
 
 func New(config *Config, storageInterface storage.Interface, authorizer access.Interface) (Interface, error) {

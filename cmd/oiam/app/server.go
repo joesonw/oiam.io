@@ -6,10 +6,10 @@ import (
 	"net/http"
 	"strings"
 
-	"github.com/joesonw/oiam.io/pkg/controller"
-	"github.com/joesonw/oiam.io/pkg/iam"
-	"github.com/joesonw/oiam.io/pkg/sts"
-	_ "github.com/joesonw/oiam.io/statik" // static files
+	"github.com/joesonw/oiam/pkg/controller"
+	"github.com/joesonw/oiam/pkg/iam"
+	"github.com/joesonw/oiam/pkg/sts"
+	_ "github.com/joesonw/oiam/statik" // static files
 	"github.com/rakyll/statik/fs"
 )
 

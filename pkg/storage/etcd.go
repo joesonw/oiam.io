@@ -10,7 +10,7 @@ import (
 	"strings"
 
 	"github.com/coreos/etcd/mvcc/mvccpb"
-	"github.com/joesonw/oiam.io/pkg/iam"
+	"github.com/joesonw/oiam/pkg/iam"
 	"go.etcd.io/etcd/clientv3"
 )
 

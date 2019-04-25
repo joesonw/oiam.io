@@ -5,7 +5,7 @@ import (
 	"errors"
 	"time"
 
-	"github.com/joesonw/oiam.io/pkg/iam"
+	"github.com/joesonw/oiam/pkg/iam"
 )
 
 type Interface interface {

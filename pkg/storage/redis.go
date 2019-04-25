@@ -6,7 +6,7 @@ import (
 	"fmt"
 
 	"github.com/go-redis/redis"
-	"github.com/joesonw/oiam.io/pkg/iam"
+	"github.com/joesonw/oiam/pkg/iam"
 )
 
 type Redis struct {

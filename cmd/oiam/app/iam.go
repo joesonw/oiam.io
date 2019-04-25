@@ -8,9 +8,9 @@ import (
 	"net/http"
 	"strings"
 
-	"github.com/joesonw/oiam.io/pkg/common"
-	"github.com/joesonw/oiam.io/pkg/iam"
-	"github.com/joesonw/oiam.io/pkg/sts"
+	"github.com/joesonw/oiam/pkg/common"
+	"github.com/joesonw/oiam/pkg/iam"
+	"github.com/joesonw/oiam/pkg/sts"
 )
 
 func (s *Server) serveIAM(res http.ResponseWriter, req *http.Request, token *sts.Token) {

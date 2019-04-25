@@ -9,8 +9,8 @@ import (
 	"strings"
 	"time"
 
-	"github.com/joesonw/oiam.io/pkg/common"
-	"github.com/joesonw/oiam.io/pkg/iam"
+	"github.com/joesonw/oiam/pkg/common"
+	"github.com/joesonw/oiam/pkg/iam"
 )
 
 const (

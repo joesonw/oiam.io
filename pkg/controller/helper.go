@@ -5,8 +5,8 @@ import (
 	"errors"
 	"fmt"
 
-	"github.com/joesonw/oiam.io/pkg/iam"
-	"github.com/joesonw/oiam.io/pkg/storage"
+	"github.com/joesonw/oiam/pkg/iam"
+	"github.com/joesonw/oiam/pkg/storage"
 )
 
 func preFlightCheck(ctx context.Context, storageInterface storage.Interface, kind iam.Kind, in iam.Interface) error {

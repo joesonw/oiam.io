@@ -3,8 +3,8 @@ package controller
 import (
 	"context"
 
-	"github.com/joesonw/oiam.io/pkg/iam"
-	"github.com/joesonw/oiam.io/pkg/storage"
+	"github.com/joesonw/oiam/pkg/iam"
+	"github.com/joesonw/oiam/pkg/storage"
 )
 
 type basic struct {

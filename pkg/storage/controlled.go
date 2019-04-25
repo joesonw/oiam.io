@@ -4,7 +4,7 @@ import (
 	"context"
 	"time"
 
-	"github.com/joesonw/oiam.io/pkg/iam"
+	"github.com/joesonw/oiam/pkg/iam"
 	uuid "github.com/satori/go.uuid"
 )
 

@@ -3,7 +3,7 @@ package sts
 import (
 	"time"
 
-	"github.com/joesonw/oiam.io/pkg/iam"
+	"github.com/joesonw/oiam/pkg/iam"
 )
 
 type Credential struct {

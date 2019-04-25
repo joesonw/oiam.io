@@ -3,7 +3,7 @@ package controller
 import (
 	"context"
 
-	"github.com/joesonw/oiam.io/pkg/iam"
+	"github.com/joesonw/oiam/pkg/iam"
 )
 
 type withoutNamespaceController struct {
